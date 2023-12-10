@@ -24,11 +24,7 @@ function Login() {
 
       const data = await response.json();
       if (response.ok) {
-        // Збереження токену у локальному сховищі
-        localStorage.setItem("token", data.token);
-
-        // Виклик функції loginUser для оновлення стану користувача
-        loginUser(data.token);
+        loginUser(data.token);// Виклик функції loginUser для оновлення стану користувача 
         navigate("/");  // Перенаправлення на домашню сторінку
       } else {
         setError(data.msg);
