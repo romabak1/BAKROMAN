@@ -5,16 +5,15 @@ import ProductRegistry from "./components/ProductRegistry";
 import Navbar from "./components/Navbar";
 import { UserProvider } from './context/UserContext';
 import { useContext } from "react";
-import "./App.css"
-
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ProductsList from "./components/GroupedProductsList";
-
-// У вашому компоненті App або Router
 import PrivateRoute from "./components/PrivateRoute";
+
+import "./App.css"
+
 import { UserContext } from "./context/UserContext";
 
 function App() {
