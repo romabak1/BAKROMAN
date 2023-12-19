@@ -1,7 +1,7 @@
 // PrivateRoute.js
 import React from 'react';
 import {  Navigate } from 'react-router-dom';
-import { UserContext } from '../context/UserContext'; // Змінено шлях імпорту
+import { UserContext } from '../context/UserContext'; 
 import { useContext } from 'react';
 
 
