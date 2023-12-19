@@ -4,6 +4,7 @@ import AdminPanel from './components/AdminPanel';
 import ProductRegistry from "./components/ProductRegistry";
 import Navbar from "./components/Navbar";
 import { UserProvider } from './context/UserContext';
+import { useContext } from "react";
 import "./App.css"
 
 import React from "react";
@@ -13,23 +14,23 @@ import Register from "./components/Register";
 import ProductsList from "./components/GroupedProductsList";
 
 // У вашому компоненті App або Router
-
+import PrivateRoute from "./components/PrivateRoute";
+import { UserContext } from "./context/UserContext";
 
 function App() {
-  const isAuthenticated = localStorage.getItem("token"); // Перевірка наявності токена
-
+  const user = useContext(UserContext)
   return (
     <UserProvider>
       <Router>
         <Navbar />
-        <Routes>
           {/* Перенаправлення з головної сторінки на сторінку логіна, якщо не авторизований */}
-          <Route path="/" element={isAuthenticated ? <HomePage /> : <Navigate to="/login" />} />
-          <Route path="/admin" element={<AdminPanel />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/products" element={<ProductRegistry />} />
-          <Route path="/productslist" element={<ProductsList />} /> {/* Маршрут для ProductsList */}
+          <Routes>
+          <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+          <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
+          <Route path="/admin" element={<PrivateRoute><AdminPanel /></PrivateRoute>} />
+          <Route path="/register" element={<PrivateRoute><Register /></PrivateRoute>} />
+          <Route path="/products" element={<PrivateRoute><ProductRegistry /></PrivateRoute>} />
+          <Route path="/productslist" element={<PrivateRoute><ProductsList /></PrivateRoute>} />
         </Routes>
         <Navigation />
       </Router>
