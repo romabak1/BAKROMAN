@@ -10,9 +10,10 @@ function Login() {
   const navigate = useNavigate();
   const { loginUser } = useContext(UserContext);
 
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
     try {
       const response = await fetch("http://localhost:5001/api/user/login", {
         method: "POST",
@@ -21,11 +22,11 @@ function Login() {
         },
         body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await response.json();
       if (response.ok) {
-        loginUser(data.token);// Виклик функції loginUser для оновлення стану користувача 
-        navigate("/");  // Перенаправлення на домашню сторінку
+        await loginUser(data.token); // Використання await для забезпечення оновлення стану перед переходом
+        navigate("/"); // Перенаправлення на головну сторінку
       } else {
         setError(data.msg);
       }
@@ -33,6 +34,7 @@ function Login() {
       setError("Не вдалося з'єднатися з сервером.");
     }
   };
+  
 
   return (
     

@@ -18,6 +18,7 @@ import { UserContext } from "./context/UserContext";
 
 function App() {
   const user = useContext(UserContext)
+  
   return (
     <UserProvider>
       <Router>

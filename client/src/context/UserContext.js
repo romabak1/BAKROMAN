@@ -1,11 +1,14 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import '../App.css'
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // стан для відслідковування завантаження даних користувача
 
+  
   // Функція для оновлення даних користувача після входу
   const loginUser = async (token) => {
     localStorage.setItem('token', token);
@@ -35,6 +38,7 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     const verifyUser = async () => {
+      setIsLoading(true); // початок завантаження
       const token = localStorage.getItem('token');
       if (token) {
         try {
@@ -54,11 +58,17 @@ export const UserProvider = ({ children }) => {
           logoutUser();
         }
       }
+      setIsLoading(false);
     };
   
     verifyUser();
   }, []);
-  
+
+
+  if (isLoading) {
+    // Можете показати спінер або інший індикатор завантаження
+    return <div className='loading'>Loading...</div>;
+  }
 
   return (
     <UserContext.Provider value={{ user, setUser, loginUser, logoutUser }}>

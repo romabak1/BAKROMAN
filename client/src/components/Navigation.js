@@ -20,3 +20,4 @@ export function Navigation() {
         return null; // або відображення кнопок для інших маршрутів
     }
 };
+export default Navigation

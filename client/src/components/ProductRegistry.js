@@ -184,21 +184,25 @@ const ProductRegistry = () => {
 
 
                         {/* dates */}
+                        Дата виготовлення
                         <input
                             type="date"
                             value={(currentProduct.manufactureDate)}
                             onChange={(e) => setCurrentProduct({ ...currentProduct, manufactureDate: e.target.value })}
                         />
+                        Срок придатності
                         <input
                             type="date"
                             value={(currentProduct.expiryDate)}
                             onChange={(e) => setCurrentProduct({ ...currentProduct, expiryDate: e.target.value })}
                         />
+                        Дата прибуття (автоматично - сьогодні)
                         <input
                             type="date"
                             value={(currentProduct.arrivalDate)}
                             onChange={(e) => setCurrentProduct({ ...currentProduct, arrivalDate: e.target.value })}
                         />
+                        Одиниць
                         <input
                             type="number"
                             placeholder="Кількість"
