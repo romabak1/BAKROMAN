@@ -38,7 +38,7 @@ function Login() {
 
   return (
     
-    <div>
+    <div className="auth" >
       <h2>Авторизація</h2>
       <form onSubmit={handleSubmit}>
         <input

@@ -32,7 +32,7 @@ function Register() {
     }
   };
   return (
-    <div>
+    <div className="auth">
       <h2>Реєстрація</h2>
       <form onSubmit={handleSubmit}>
         <input

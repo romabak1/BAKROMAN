@@ -11,7 +11,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import ProductsList from "./components/GroupedProductsList";
 import PrivateRoute from "./components/PrivateRoute";
-
+import ResumePage from "./components/ResumePage";
 import "./App.css"
 
 import { UserContext } from "./context/UserContext";
@@ -25,6 +25,7 @@ function App() {
         <Navbar />
           {/* Перенаправлення з головної сторінки на сторінку логіна, якщо не авторизований */}
           <Routes>
+          <Route path="/" element={<ResumePage />} />
           <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
           <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
           <Route path="/admin" element={<PrivateRoute><AdminPanel /></PrivateRoute>} />

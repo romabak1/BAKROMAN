@@ -102,3 +102,4 @@ const GroupedProductsList = () => {
 };
 
 export default GroupedProductsList;
+
