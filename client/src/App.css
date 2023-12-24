@@ -92,7 +92,6 @@ form{
   font-weight: bold;
 }
 
-/* Modal.css */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -119,4 +118,22 @@ form{
   border: none;
   background: none;
   cursor: pointer;
+}
+.resume-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.resume-container h1 {
+  text-align: center;
+  color: #333;
+}
+div.ots{
+  text-align: left;
+  margin-left: 20%;
+  margin-right: 5%;
 }
