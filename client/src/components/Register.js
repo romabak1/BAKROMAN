@@ -32,10 +32,10 @@ function Register() {
     }
   };
   return (
-    <div>
+    <div className="auth">
       <h2>Реєстрація</h2>
       <form onSubmit={handleSubmit}>
-        <input
+        <input className="inp"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -43,7 +43,7 @@ function Register() {
           id = "passwordinput2"
           required
         />
-        <input
+        <input className="inp"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

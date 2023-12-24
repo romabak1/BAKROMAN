@@ -35,11 +35,10 @@ function Login() {
   };
 
   return (
-    
-    <div>
+    <div className="auth">
       <h2>Авторизація</h2>
       <form onSubmit={handleSubmit}>
-        <input
+        <input className="inp"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -47,7 +46,7 @@ function Login() {
           id="email-input"
           required
         />
-        <input
+        <input className="inp"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
