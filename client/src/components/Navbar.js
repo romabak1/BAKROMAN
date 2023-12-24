@@ -21,7 +21,7 @@ function Navbar() {
         )}
         <button onClick={() => navigateTo('/products')}>Отримання продуктів</button> {/* Кнопка для переходу на сторінку з продуктами */}
         <button onClick={() => navigateTo('/productslist')}>Продукти</button> {/* Кнопка для переходу на сторінку з продуктами */}
-        <LogoutButton /></>
+        <LogoutButton className="logout"/></>
         )
         :
         (<button onClick={() => navigateTo('/login')}>Ви не війшли в акаунт</button>)

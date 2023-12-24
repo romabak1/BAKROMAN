@@ -1,18 +1,32 @@
-.App {
-  text-align: center;
+nav {
+  display: flex;
+  align-items: center;
+  background-color: #b0ced7;
+  margin: 5px;
+  border-radius: 5px;
 }
-
+.logout{
+  margin-left: auto;
+  margin-right: 10px;
+}
+div#root{
+  margin-left: 0;
+}
+div.auth{
+display:block;
+padding: 2%;
+  
+}
+.inp{
+  background-color: #f0f3f4;
+  display: flex;
+  width: 50%;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-nav{
-  background-color: #f6f6fa;
-  padding: 5px;
-  justify-content: flex-start;
 }
 
 .App-header {
@@ -76,4 +90,32 @@ form{
   float: right;
   font-size: 20px;
   font-weight: bold;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
