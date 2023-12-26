@@ -8,14 +8,14 @@ const productRoutes = require("./routes/products");
 
 
 
-connectDB();
-const app = express();
-app.use(cors());
-app.use(express.json());
-app.use('/api/admin', adminRoutes);
-app.use("/api/user", authRoutes);
-app.use("/api/products", productRoutes);
+connectDB(); // Викликаємо функцію connectDB для встановлення з'єднання з базою даних
+const app = express(); // Створюємо екземпляр додатку Express
+app.use(cors()); // Додаємо CORS middleware для обробки CORS запитів
+app.use(express.json()); // Використовуємо middleware для розпізнавання JSON об'єктів у запитах
+app.use('/api/admin', adminRoutes); // Додаємо маршрутизацію для адмінської панелі
+app.use("/api/user", authRoutes); // Додаємо маршрутизацію для аутентифікації
+app.use("/api/products", productRoutes); // Додаємо маршрутизацію для продуктів
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT; // Отримуємо порт, на якому буде працювати сервер
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import FormatDate from './FormatDate';
+import FormatDate from './FormatDate'; // Імпортуємо вашу функцію FormatDate для форматування дат
 
 const GroupedProductsList = () => {
-    const [groupedProducts, setGroupedProducts] = useState([]);
-    const [selectedProductDetails, setSelectedProductDetails] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false); // Стан для відстеження відкриття модального вікна
+    const [groupedProducts, setGroupedProducts] = useState([]); // Стейт для збереження групованих продуктів
+    const [selectedProductDetails, setSelectedProductDetails] = useState(null); // Стейт для збереження деталей вибраного продукту
+    const [isModalOpen, setIsModalOpen] = useState(false); // Стейт для відстеження відкриття модального вікна
 
     useEffect(() => {
+        // Ефект, що виконується після завантаження компонента
         fetch('http://localhost:5001/api/products/grouped')
             .then(response => response.json())
-            .then(data => setGroupedProducts(data))
+            .then(data => setGroupedProducts(data)) // Оновлюємо стейт групованих продуктів
             .catch(error => console.error('Error fetching grouped products:', error));
-    }, []);
-    // МААДАЛЬНЕ ВІКНО
-    
+    }, []); // Відправляємо запит тільки після першого рендеру компонента
+
     const showProductDetails = async (code) => {
         try {
             const response = await fetch(`http://localhost:5001/api/products/details/${code}`);
             if (response.ok) {
                 const data = await response.json();
-                setSelectedProductDetails(data);
-                setIsModalOpen(true);           // Відкрити модальне вікно
+                setSelectedProductDetails(data); // Оновлюємо стейт для вибраних деталей
+                setIsModalOpen(true); // Відкриваємо модальне вікно
             } else {
                 throw new Error('Product details not found');
             }
@@ -31,9 +31,8 @@ const GroupedProductsList = () => {
     };
 
     const closeModal = () => {
-        setIsModalOpen(false); // Закрити модальне вікно
+        setIsModalOpen(false); // Закриваємо модальне вікно
     };
-    // МААДАЛЬНЕ ВІКНО
 
     return (
         <div>
@@ -64,6 +63,7 @@ const GroupedProductsList = () => {
             </table>
 
             {isModalOpen && selectedProductDetails && (
+                // Умовний рендеринг модального вікна, якщо воно відкрите та є вибрані деталі
                 <div className="modal">
                     <div className="modal-content">
                         <span className="close-modal" onClick={closeModal}>&times;</span>

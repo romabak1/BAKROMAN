@@ -3,7 +3,7 @@ import React from "react";
 const ResumePage = () => {
   return (
     <div className="resume-container">
-      <h1>Резюме проекту</h1>
+      <h1>Проект</h1>
       <div className="ots">
         <p>
           <strong>Назва проекту:</strong> Розроблення програмного продукту для роботи з файловою базою даних про прихід товарів на склад підприємства

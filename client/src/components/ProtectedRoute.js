@@ -6,11 +6,14 @@ import { useContext } from "react";
 const ProtectedRoute = ({ children }) => {
     const { user } = useContext(UserContext);
 
+    // Перевірка, чи користувач авторизований через контекст користувача
     if (!user) {
+        // Якщо користувач не авторизований, перенаправити на сторінку входу (логін)
         return <Navigate to="/login" />;
     }
+    
+    // Якщо користувач авторизований, відображати запитаний компонент (дітей)
     return children;
-    // Якщо авторизований, відображати запитаний компонент
 };
 
 export default ProtectedRoute;
