@@ -18,7 +18,8 @@ import { UserContext } from "./context/UserContext";
 
 function App() {
   const user = useContext(UserContext)
-  return (
+  return ( 
+    
     <UserProvider>
       <Router>
         <Navbar />
