@@ -5,3 +5,8 @@ client/node_modules/.cache/default-development/0.pack
 *.pack
 *.old
 client/node_modules/.cache/default-development/index.pack.old
+*.pack
+*.pack
+*.pack
+*.pack
+client/node_modules/.cache/default-development/index.pack.old
