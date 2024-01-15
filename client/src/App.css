@@ -39,12 +39,7 @@ padding: 2%;
   color: #61dafb;
 }
 
-button{
-  margin-top: 5px;
-  margin-left: 5px;
-  background-color: #ffffff;
-  border: 2px solid #000000;
-}
+
 
 div{
   margin-top: 5px;
@@ -131,4 +126,11 @@ form{
 .resume-container h1 {
   text-align: center;
   color: #333;
+}
+
+button{
+  margin-top: 5px;
+  margin-left: 5px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
 }
