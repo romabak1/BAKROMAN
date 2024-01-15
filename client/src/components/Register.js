@@ -40,7 +40,7 @@ function Register() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
-          id = "passwordinput2"
+          id="passwordinput2"
           required
         />
         <input
@@ -48,7 +48,7 @@ function Register() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          id = "email-input2"
+          id="email-input2"
           required
         />
         <button type="submit">Зареєструватися</button>

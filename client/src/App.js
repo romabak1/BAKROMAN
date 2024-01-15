@@ -29,7 +29,7 @@ function App() {
           <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
           <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
           <Route path="/admin" element={<PrivateRoute><AdminPanel /></PrivateRoute>} />
-          <Route path="/register" element={<PrivateRoute><Register /></PrivateRoute>} />
+          <Route path="/register" element={<Register />} />
           <Route path="/products" element={<PrivateRoute><ProductRegistry /></PrivateRoute>} />
           <Route path="/productslist" element={<PrivateRoute><ProductsList /></PrivateRoute>} />
         </Routes>
