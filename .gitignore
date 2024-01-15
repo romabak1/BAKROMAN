@@ -1,5 +1,10 @@
 
-*.json
-*.old
-*.pack
-client/node_modules/.cache
+client/node_modules/
+server/node_modules/
+node_modules/
+build/
+coverage/
+npm-debug.log
+yarn-error.log
+.idea/
+.vscode/
