@@ -1,7 +1,4 @@
 
 *.json
-client/node_modules/.cache/.eslintcache
-*.pack
-*.pack
 *.old
 *.pack
