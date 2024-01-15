@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/UserContext'; // Імпортуємо UserContext для використання контексту користувача
-import LogoutButton from './LogoutButton'; // Імпортуємо компонент LogoutButton
+import LogoutButton from './LogOutButton'; // Імпортуємо компонент LogoutButton
 
 function Navbar() {
   const navigate = useNavigate(); // Хук для навігації між сторінками
