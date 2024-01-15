@@ -1,5 +1,5 @@
 import { Navigation } from "./components/Navigation";
-import HomePage from "./components/HomePage";
+import HomePage from "./components/HomePage"
 import AdminPanel from './components/AdminPanel';
 import ProductRegistry from "./components/ProductRegistry";
 import Navbar from "./components/Navbar";
@@ -18,25 +18,27 @@ import { UserContext } from "./context/UserContext";
 
 function App() {
   const user = useContext(UserContext)
-  return ( 
+  
+  return (
     <UserProvider>
       <Router>
         <Navbar />
-        <Routes>
+          {/* Перенаправлення з головної сторінки на сторінку логіна, якщо не авторизований */}
+          <Routes>
           <Route path="/" element={<ResumePage />} />
-          {/* Якщо користувач авторизований, перенаправляємо його на головну сторінку, інакше показуємо сторінку логіна */}
           <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
-          {/* Використання PrivateRoute для захисту маршрутів, доступних тільки авторизованим користувачам */}
           <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
           <Route path="/admin" element={<PrivateRoute><AdminPanel /></PrivateRoute>} />
-          <Route path="/register" element={<PrivateRoute><Register /></PrivateRoute>} />
+          <Route path="/register" element={<Register />} />
           <Route path="/products" element={<PrivateRoute><ProductRegistry /></PrivateRoute>} />
           <Route path="/productslist" element={<PrivateRoute><ProductsList /></PrivateRoute>} />
         </Routes>
         <Navigation />
       </Router>
     </UserProvider>
+
   );
 }
 
 export default App;
+

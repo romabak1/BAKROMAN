@@ -1,22 +1,22 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../context/UserContext'; // Імпортуємо UserContext для використання контексту користувача
+import { UserContext } from '../context/UserContext';
 
 function LogoutButton() {
-  const navigate = useNavigate(); // Хук для навігації між сторінками
-  const { logoutUser } = useContext(UserContext); // Витягуємо функцію logoutUser із контексту користувача
+  const navigate = useNavigate();
+  const { logoutUser } = useContext(UserContext);
 
   const handleLogout = () => {
-    logoutUser(); // Використовуємо функцію logoutUser для очищення стану користувача
+    logoutUser(); // Використання функції logoutUser для очищення стану користувача
 
-    // Очищення токена з локального сховища, якщо він зберігається там
+    // Очищення токена з локального сховища
     localStorage.removeItem('token');
 
-    navigate('/login'); // Перенаправляємо користувача на сторінку авторизації (логіну)
+    navigate('/login'); // Перенаправлення на сторінку логіну
   };
 
   return (
-    <button className="logout" onClick={handleLogout}>Вийти</button> // Кнопка для виходу, яка викликає функцію handleLogout при кліку
+    <button className="logout" onClick={handleLogout}>Вийти</button>
   );
 }
 

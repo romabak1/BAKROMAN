@@ -5,9 +5,6 @@ nav {
   margin: 5px;
   border-radius: 5px;
 }
-h2{
-  text-align: center;
-}
 .logout{
   margin-left: auto;
   margin-right: 10px;
@@ -26,11 +23,6 @@ padding: 2%;
   width: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -47,10 +39,8 @@ padding: 2%;
   color: #61dafb;
 }
 
-button{
-  margin-top: 5px;
-  margin-left: 5px;
-}
+
+
 div{
   margin-top: 5px;
   margin-left: 5px;
@@ -60,8 +50,8 @@ form{
 }
 .error {
   background-color: rgba(255, 0, 0, 0.616); /* Колір фону з прозорістю */
-    width: 280px;
-    height: 20px;
+  max-width: 350px;
+   
   text-align: center;
   color: #fff;
   border-radius: 5px;
@@ -95,6 +85,7 @@ form{
   font-weight: bold;
 }
 
+/* Modal.css */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -122,6 +113,7 @@ form{
   background: none;
   cursor: pointer;
 }
+
 .resume-container {
   max-width: 600px;
   margin: 20px auto;
@@ -135,8 +127,10 @@ form{
   text-align: center;
   color: #333;
 }
-div.ots{
-  text-align: left;
-  margin-left: 20%;
-  margin-right: 5%;
+
+button{
+  margin-top: 5px;
+  margin-left: 5px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
 }

@@ -1,2 +1,5 @@
 
-client/node_modules/.cache/
+*.json
+*.old
+*.pack
+client/node_modules/.cache

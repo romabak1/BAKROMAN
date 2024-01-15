@@ -1,44 +1,47 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
-import { UserContext } from '../context/UserContext'; // Імпортуємо UserContext для використання контексту користувача
+import { UserContext } from '../context/UserContext';
 
 function Login() {
-  const [email, setEmail] = useState(""); // Стейт для збереження email користувача
-  const [password, setPassword] = useState(""); // Стейт для збереження паролю користувача
-  const [error, setError] = useState(""); // Стейт для збереження повідомлень про помилки
-  const navigate = useNavigate(); // Хук для навігації між сторінками
-  const { loginUser } = useContext(UserContext); // Витягуємо функцію loginUser із контексту користувача
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const { loginUser } = useContext(UserContext);
 
+
+  
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Забороняємо стандартну поведінку форми (перезавантаження сторінки)
-    setError(""); // Очищаємо повідомлення про помилки перед відправкою запиту
+    e.preventDefault();
     try {
       const response = await fetch("http://localhost:5001/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }), // Відправляємо email і пароль на сервер у форматі JSON
+        body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await response.json();
       if (response.ok) {
-        loginUser(data.token); // Викликаємо функцію loginUser для оновлення стану користувача з отриманим токеном
-        navigate("/"); // Перенаправляємо користувача на домашню сторінку
+        await loginUser(data.token); // Використання await для забезпечення оновлення стану перед переходом
+        navigate("/"); // Перенаправлення на головну сторінку
       } else {
-        setError(data.msg); // Встановлюємо повідомлення про помилку, якщо авторизація не вдалася
+        setError(data.msg);
       }
     } catch (error) {
-      setError("Не вдалося з'єднатися з сервером."); // Встановлюємо повідомлення про помилку, якщо сталася помилка з'єднання з сервером
+      setError("Не вдалося з'єднатися з сервером.");
     }
   };
+  
 
   return (
-    <div className="auth">
+    
+    <div className="auth" >
       <h2>Авторизація</h2>
       <form onSubmit={handleSubmit}>
-        <input className="inp"
+        <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -46,7 +49,7 @@ function Login() {
           id="email-input"
           required
         />
-        <input className="inp"
+        <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -56,7 +59,7 @@ function Login() {
         />
         <button type="submit">Увійти</button>
       </form>
-      {error && <div className="error">{error}</div>} {/* Відображаємо повідомлення про помилку, якщо воно є */}
+      {error && <div className="error">{error}</div>}
     </div>
   );
 }
